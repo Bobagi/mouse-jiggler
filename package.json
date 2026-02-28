@@ -1,14 +1,30 @@
 {
   "name": "mouse-jiggler",
   "version": "1.0.0",
-  "description": "Mouse Jiggler in javascript that moves the mouse cursor periodically to prevent the operating system from entering sleep mode or screen lock",
-  "main": "index.js",
+  "description": "JavaScript mouse jiggler compatible with modern Node.js versions",
+  "main": "src/mouseJiggler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/mouseJiggler.js",
+    "test": "node --check src/mouseJiggler.js",
+    "build:win": "pkg . --targets node18-win-x64 --output dist/mouse-jiggler-win.exe",
+    "build:mac": "pkg . --targets node18-macos-x64 --output dist/mouse-jiggler-macos",
+    "build:linux": "pkg . --targets node18-linux-x64 --output dist/mouse-jiggler-linux"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "robotjs": "^0.6.0"
+    "@nut-tree-fork/nut-js": "^4.2.6"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": "src/mouseJiggler.js",
+  "pkg": {
+    "scripts": [
+      "src/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
   }
 }
