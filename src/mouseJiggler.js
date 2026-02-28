@@ -15,19 +15,35 @@ if (!Number.isFinite(INTERVAL_MS) || INTERVAL_MS <= 0) {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+function randomOffset(distance) {
+  const min = -distance;
+  const max = distance;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomTarget(position) {
+  let offsetX = 0;
+  let offsetY = 0;
+
+  while (offsetX === 0 && offsetY === 0) {
+    offsetX = randomOffset(JIGGLE_DISTANCE);
+    offsetY = randomOffset(JIGGLE_DISTANCE);
+  }
+
+  return new Point(position.x + offsetX, position.y + offsetY);
+}
+
 async function jiggleMouse() {
+  console.log('Mouse is jiggling... Press Ctrl+C to stop.');
+
   while (true) {
     const originalPosition = await mouse.getPosition();
+    const targetPosition = randomTarget(originalPosition);
 
-    await mouse.move(straightTo(new Point(
-      originalPosition.x + JIGGLE_DISTANCE,
-      originalPosition.y + JIGGLE_DISTANCE,
-    )));
-
+    await mouse.move(straightTo(targetPosition));
     await sleep(INTERVAL_MS);
 
     await mouse.move(straightTo(new Point(originalPosition.x, originalPosition.y)));
-
     await sleep(INTERVAL_MS);
   }
 }

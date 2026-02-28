@@ -17,7 +17,10 @@ npm start
 ## Optional configuration
 
 - `JIGGLE_DISTANCE` (default: `5`)
+  - used as the max random offset range in each axis (`-distance` to `+distance`)
 - `JIGGLE_INTERVAL_MS` (default: `1000`)
+
+When started, the app prints `Mouse is jiggling... Press Ctrl+C to stop.` so you can confirm it is running.
 
 Example:
 
