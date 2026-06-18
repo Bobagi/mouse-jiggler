@@ -1,7 +1,7 @@
 {
   "name": "mouse-jiggler",
   "version": "1.0.0",
-  "description": "JavaScript mouse jiggler compatible with modern Node.js versions",
+  "description": "Calm, drift-free JavaScript mouse jiggler that keeps the machine awake without fighting the user (Node 18+).",
   "main": "src/mouseJiggler.js",
   "scripts": {
     "start": "node src/mouseJiggler.js",
