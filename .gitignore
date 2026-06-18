@@ -1,0 +1,13 @@
+# Dependencies (reinstalled per-machine with `npm install`).
+# These were previously committed by mistake — the native binaries inside are
+# platform-specific (a Windows build won't run on macOS, and vice versa), so
+# every machine must install its own. package-lock.json is kept in git instead.
+node_modules/
+
+# Build output from `npm run build:*`
+dist/
+
+# Logs / OS cruft
+*.log
+.DS_Store
+Thumbs.db
