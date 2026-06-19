@@ -45,9 +45,9 @@ function readPositiveNumber(name, fallback) {
 
 // Max random offset per axis, in pixels. Tiny on purpose — the cursor returns
 // to its origin anyway, so the only thing that matters is that an event fires.
-const JIGGLE_DISTANCE = readPositiveNumber('JIGGLE_DISTANCE', 4);
+const JIGGLE_DISTANCE = readPositiveNumber('JIGGLE_DISTANCE', 12);
 // Time between nudges. Calm by default; lower it if your display sleeps fast.
-const INTERVAL_MS = readPositiveNumber('JIGGLE_INTERVAL_MS', 30000);
+const INTERVAL_MS = readPositiveNumber('JIGGLE_INTERVAL_MS', 3000);
 // How long the cursor sits at the nudged spot before snapping back.
 const RETURN_DELAY_MS = readPositiveNumber('JIGGLE_RETURN_DELAY_MS', 60);
 // Cursor movement (px, per axis) above which we assume *you* moved the mouse and
