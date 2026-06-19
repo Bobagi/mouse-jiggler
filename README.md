@@ -8,7 +8,7 @@ It is built to be **calm and non-intrusive**:
 
 - **No drift** — every nudge snaps the cursor back to the pixel it started from.
   It will **not** slowly "walk" across the screen like a naive jiggler does.
-- **Low frequency** — one nudge every 30 seconds by default, not a constant
+- **Low frequency** — one small nudge every 3 seconds by default, not a constant
   stream of movement, so you can always click anywhere (the terminal included).
 - **Stays out of your way** — if you move the mouse yourself, it notices, pauses
   for that cycle, and re-anchors to wherever you left the cursor instead of
@@ -39,7 +39,7 @@ npm start        # starts jiggling; press Ctrl+C to stop
 You should see:
 
 ```
-Mouse is jiggling every 30000ms (+/-4px). Move the mouse to pause it; press Ctrl+C to stop.
+Mouse is jiggling every 3000ms (+/-12px). Move the mouse to pause it; press Ctrl+C to stop.
 ```
 
 > ⚠️ `node_modules` is **not** committed — the native binary is OS-specific, so
@@ -107,8 +107,8 @@ All optional, set via environment variables.
 
 | Variable                    | Default | Meaning                                                                                  |
 | --------------------------- | ------- | ---------------------------------------------------------------------------------------- |
-| `JIGGLE_INTERVAL_MS`        | `30000` | Time between nudges, in milliseconds. **Lower it if your display sleeps quickly.**        |
-| `JIGGLE_DISTANCE`           | `4`     | Max random offset per axis, in pixels (the cursor returns to origin regardless).         |
+| `JIGGLE_INTERVAL_MS`        | `3000`  | Time between nudges, in milliseconds. **Lower it if your display sleeps quickly.**        |
+| `JIGGLE_DISTANCE`           | `12`    | Max random offset per axis, in pixels (the cursor returns to origin regardless).         |
 | `JIGGLE_RETURN_DELAY_MS`    | `60`    | How long the cursor sits at the nudged spot before snapping back.                         |
 | `JIGGLE_USER_MOVE_THRESHOLD`| `20`    | If the cursor moves more than this (px, per axis) between cycles, assume **you** moved it and skip that cycle. |
 

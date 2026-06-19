@@ -49,7 +49,7 @@ per `JIGGLE_INTERVAL_MS`:
 `main()` only runs when the file is the entry point (`require.main === module`).
 `SIGINT`/`SIGTERM` are handled for clean shutdown.
 
-Config via env vars: `JIGGLE_INTERVAL_MS` (30000), `JIGGLE_DISTANCE` (4),
+Config via env vars: `JIGGLE_INTERVAL_MS` (3000), `JIGGLE_DISTANCE` (12),
 `JIGGLE_RETURN_DELAY_MS` (60), `JIGGLE_USER_MOVE_THRESHOLD` (20).
 
 ## The non-negotiable design rule: NO DRIFT
